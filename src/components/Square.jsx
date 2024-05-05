@@ -1,8 +1,14 @@
-export default function Square({value, onSquareClick}) {
+import { Button } from "@mui/material";
 
-    return (
-        <button className="square" onClick={onSquareClick}>
-            {value}
-        </button>
-    );
+export default function Square({ value, onSquareClick }) {
+  return (
+    <Button
+      variant="contained"
+      color="secondary"
+      sx={{ width: "100px", height: "100px", borderRadius: 0, fontSize: "3rem", fontWeight: "bold"}}
+      onClick={onSquareClick}
+    >
+      {value}
+    </Button>
+  );
 }
