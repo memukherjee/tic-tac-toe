@@ -9,7 +9,7 @@ export default function Board({ xIsNext, squares, onPlay, noOfMoves }) {
     ? "It's a draw"
     : `Next player: ${xIsNext ? "X" : "O"}`;
 
-  function handelClick(index) {
+  function handleClick(index) {
     if (squares[index] || calculateWinner(squares)) {
       return;
     }
@@ -28,15 +28,11 @@ export default function Board({ xIsNext, squares, onPlay, noOfMoves }) {
         gap: "5px",
       }}
       >
-        <Square value={squares[0]} onSquareClick={() => handelClick(0)} />
-        <Square value={squares[1]} onSquareClick={() => handelClick(1)} />
-        <Square value={squares[2]} onSquareClick={() => handelClick(2)} />
-        <Square value={squares[3]} onSquareClick={() => handelClick(3)} />
-        <Square value={squares[4]} onSquareClick={() => handelClick(4)} />
-        <Square value={squares[5]} onSquareClick={() => handelClick(5)} />
-        <Square value={squares[6]} onSquareClick={() => handelClick(6)} />
-        <Square value={squares[7]} onSquareClick={() => handelClick(7)} />
-        <Square value={squares[8]} onSquareClick={() => handelClick(8)} />
+        {
+          squares.map((value, index) => (
+            <Square key={index} value={value} onSquareClick={() => handleClick(index)} />
+          ))
+        }
       </Box>
     </>
   );
